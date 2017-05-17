@@ -8,6 +8,7 @@
 *.sln.docstates
 Scrap.txt
 Scrap.vb
+SupportingFiles/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
