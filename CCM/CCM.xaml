@@ -1,0 +1,706 @@
+﻿<UserControl x:Class="CCM"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:basefunctions="clr-namespace:BaseFunctions;assembly=BaseFunctions"
+             xmlns:common="clr-namespace:Common;assembly=Common"
+             xmlns:viewer="clr-namespace:PDFViewer;assembly=PDFViewer"
+             mc:Ignorable="d" 
+             d:DesignWidth="1600" d:DesignHeight="1150">
+    <Grid Name="GridMain">
+        <Grid.Resources>
+            <basefunctions:MultiplierConverter x:Key="MultiplierConverter"/>
+        </Grid.Resources>
+        <Grid.Background >
+            <ImageBrush ImageSource="Resources/TextureCardboard.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="0" Panel.ZIndex="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+            <DockPanel>
+                <Border Name="BorderFormContents" DockPanel.Dock="Top" Background="#33FF00FF">
+                    <TextBlock Text="Form Contents" Padding="10" DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                </Border>
+                <Grid DockPanel.Dock="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Name="RectangleFormScrollUp" Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2" AllowDrop="True" ToolTip="Scroll Up" Fill="Transparent"></Rectangle>
+                    <Image Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Name="ImageFormScrollUp" Height="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.5}" Margin="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.2}"/>
+                </Grid>
+                <Grid DockPanel.Dock="Bottom">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Name="RectangleFormScrollDown" Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2" AllowDrop="True" ToolTip="Scroll Down" Fill="Transparent"></Rectangle>
+                    <Image Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Name="ImageFormScrollDown" Height="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.5}" Margin="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.2}"/>
+                </Grid>
+                <ScrollViewer Name="GridFormScrollViewer" VerticalScrollBarVisibility="Visible" Grid.Row="1" PanningMode="VerticalOnly" Tag="fab5d6d0-f87f-434c-8a3d-976f9ad437d9">
+                    <Grid Name="GridFormContents" Margin="0,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="{x:Null}" Tag="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.015}"/>
+                            <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.015}"/>
+                            <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.015}"/>
+                            <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.015}"/>
+                            <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.015}"/>
+                            <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.015}"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.015}"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ScrollViewer>
+            </DockPanel>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="1" Panel.ZIndex="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <DockPanel>
+                    <Grid DockPanel.Dock="Top" Name="GridFormHeaderTitle" Height="{Binding ElementName=BorderFormContents, Path=ActualHeight}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"/>
+                        <DockPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                            <TextBlock DockPanel.Dock="Left" Name="FormHeaderTitle" Text="" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                        </DockPanel>
+                    </Grid>
+                    <Grid Name="GridContents" DockPanel.Dock="Bottom">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <common:HighlightCheckBox Grid.Row="0" Grid.Column="0" Grid.ZIndex="0" IsEnabled="False" Visibility="Hidden" /><!--DO NOT REMOVE-->
+                        <DockPanel Name="DockPanelProperties" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Visibility="Hidden">
+                            <Grid DockPanel.Dock="Bottom" Grid.ZIndex="1" Margin="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="2*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="18*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="18*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                                    <TextBlock DockPanel.Dock="Left" Text="Title" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.64}"/>
+                                    <common:HighlightTextBox DockPanel.Dock="Right" Name="PropertiesTitle" HTBInnerToolTip="Title" FontMultiplier="1.25" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                                </DockPanel>
+                                <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                                    <TextBlock DockPanel.Dock="Left" Text="Author" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.64}"/>
+                                    <common:HighlightTextBox DockPanel.Dock="Right" Name="PropertiesAuthor" HTBInnerToolTip="Author" FontMultiplier="1.25" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                                </DockPanel>
+                                <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                                    <TextBlock DockPanel.Dock="Left" Text="Topic" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.64}"/>
+                                    <common:HighlightTextBox DockPanel.Dock="Right" Name="PropertiesTopic" HTBInnerToolTip="Subject" FontMultiplier="1.25" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                                </DockPanel>
+                                <DockPanel Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                                    <TextBlock DockPanel.Dock="Left" Text="Page Orientation" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.64}"/>
+                                    <common:HighlightComboBox Name="PropertiesOrientation" DockPanel.Dock="Right" InnerToolTip="Page Orientation" FontMultiplier="1.5" HCBText="{Binding Path=SelectedOrientationDisplay}" HCBContent="{Binding Path=PageOrientation}" HCBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.44}"/>
+                                </DockPanel>
+                                <DockPanel Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                                    <TextBlock DockPanel.Dock="Left" Text="Page Size" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.64}"/>
+                                    <common:HighlightComboBox Name="PropertiesSize" DockPanel.Dock="Right" InnerToolTip="Page Size" FontMultiplier="1.5" HCBText="{Binding Path=SelectedSizeDisplay}" HCBContent="{Binding Path=PageSize}" HCBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.44}"/>
+                                </DockPanel>
+                            </Grid>
+                        </DockPanel>
+                        <DockPanel Name="DockPanelPageHeader" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Visibility="Hidden">
+                            <Grid DockPanel.Dock="Top" Height="{Binding ElementName=BorderFormContents, Path=ActualHeight}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"></Rectangle>
+                                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                                    <TextBlock Text="Line" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                    <common:HighlightButton Name="PageHeaderAdd" InnerToolTip="Add Line" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                    <common:HighlightButton Name="PageHeaderRemove" InnerToolTip="Remove Line" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                    <common:HighlightButton Name="PageHeaderPrevious" InnerToolTip="Previous Line" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                    <common:HighlightButton Name="PageHeaderNext" InnerToolTip="Next Line" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                    <common:HighlightTextBox Name="PageHeaderCurrent" HTBInnerToolTip="Line Number" WidthMultiplier="2" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                    <Rectangle Width="{Binding ElementName=PageHeaderCurrent, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                    <TextBlock Text="Size" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                    <common:HighlightButton Name="PageHeaderFontSizeIncrease" InnerToolTip="Increase Font Size" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                    <common:HighlightButton Name="PageHeaderFontSizeDecrease" InnerToolTip="Decrease Font Size" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                    <common:HighlightTextBox Name="PageHeaderFontSizeMultiplier" HTBInnerToolTip="Font Size Multiplier" WidthMultiplier="2" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                </StackPanel>
+                            </Grid>
+                            <Grid DockPanel.Dock="Top" Height="{Binding ElementName=BorderFormContents, Path=ActualHeight}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"></Rectangle>
+                                <DockPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                                    <TextBlock DockPanel.Dock="Left" Text="Content" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                    <common:HighlightTextBox DockPanel.Dock="Right" Name="PageHeaderContent" HTBInnerToolTip="Content" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}"/>
+                                </DockPanel>
+                            </Grid>
+                            <Grid DockPanel.Dock="Bottom" Grid.ZIndex="2" Margin="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Name="ImagePageHeader" Grid.Row="0" Grid.Column="0" Grid.ZIndex="1" Height="Auto" Width="Auto" Margin="0"/>
+                                <Image Name="ImagePageHeaderText" Grid.Row="0" Grid.Column="0" Grid.ZIndex="2" Height="Auto" Width="Auto" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </DockPanel>
+                        <DockPanel Name="DockPanelBlock" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Visibility="Hidden">
+                            <Grid Name="GridBlockRow1" DockPanel.Dock="Top" Height="{Binding ElementName=BorderFormContents, Path=ActualHeight}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"></Rectangle>
+                                <DockPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelBlockRow" Orientation="Horizontal">
+                                        <TextBlock Text="Rows" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="BlockAddRow" InnerToolTip="Add Row" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="BlockRemoveRow" InnerToolTip="Remove Row" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name="BlockRow" HTBInnerToolTip="Rows" WidthMultiplier="2" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelBlockColumn" Orientation="Horizontal">
+                                        <TextBlock Text="Columns" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="BlockAddColumn" InnerToolTip="Add Column" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="BlockRemoveColumn" InnerToolTip="Remove Column" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name="BlockColumn" HTBInnerToolTip="Columns" WidthMultiplier="2" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelBlockWidth" Orientation="Horizontal">
+                                        <TextBlock Text = "Width" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name = "BlockIncreaseWidth" InnerToolTip="Increase Width" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "BlockDecreaseWidth" InnerToolTip="Decrease Width" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name = "BlockWidth" HTBInnerToolTip="Width" IsEnabled="False" WidthMultiplier="4" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelSection" Orientation="Horizontal">
+                                        <common:HighlightCheckBox Name="BlockNumberingBorder" LabelText="Border" InnerToolTip="Use Border For Numbering" HCBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.5}"/>
+                                        <common:HighlightCheckBox Name="BlockNumberingBackground" LabelText="Background" InnerToolTip="Use Background For Numbering" HCBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.5}"/>
+                                        <common:HighlightCheckBox Name="BlockContinuousNumbering" LabelText="Continuous" InnerToolTip="Use Continuous Numbering For Sub-Sections" HCBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.5}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelMCQ" Orientation="Horizontal">
+                                        <TextBlock Text = "MCQ" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightTextBox Name = "BlockMCQ" IsEnabled="False" HTBInnerToolTip="MCQ Data" WidthMultiplier="12" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                        <common:HighlightButton Name="MCQLoadData" InnerToolTip="Load MCQ Data" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelTags" Orientation="Horizontal">
+                                        <TextBlock Text="Tags" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="TagsPrevious" InnerToolTip="Previous Tag" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="TagsNext" InnerToolTip="Next Tag" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                        <common:HighlightTextBox Name="BlockTags" HTBInnerToolTip="Tag Data" WidthMultiplier="12" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                        <common:HighlightButton Name="TagsLoadData" InnerToolTip="Load Tag Data" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                </DockPanel>
+                            </Grid>
+                            <Grid Name="GridBlockRow2" DockPanel.Dock="Top" Height="{Binding ElementName=BorderFormContents, Path=ActualHeight}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"></Rectangle>
+                                <DockPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelShowGrid" Orientation="Horizontal">
+                                        <common:HighlightCheckBox Name="BlockShowGrid" LabelText="Grid" InnerToolTip="Show Grid" HCBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.5}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelNumbering" Orientation="Horizontal">
+                                        <common:HighlightCheckBox Name="BlockSpacer" LabelText="Spacer" InnerToolTip="Numbering Spacer Only" HCBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.5}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelWholeBlock" Orientation="Horizontal">
+                                        <common:HighlightCheckBox Name="FieldWholeBlock" LabelText="Whole Block" InnerToolTip="Apply To Block" HCBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.5}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelSelection" Orientation="Horizontal">
+                                        <TextBlock Text="Place" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="BlockPlaceItem" InnerToolTip="Place Item" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelSingle" Orientation="Horizontal">
+                                        <common:HighlightButton Name = "FieldSingle" InnerToolTip="Single Choice" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelInput" Orientation="Horizontal">
+                                        <common:HighlightButton Name = "FieldCritical" InnerToolTip="Critical Item" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "FieldExclude" InnerToolTip="Exclude Item From Processing" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldBorder" Orientation="Horizontal">
+                                        <TextBlock Text="Border Width" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="FieldBorderIncreaseWidth" InnerToolTip="Increase Width" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="FieldBorderDecreaseWidth" InnerToolTip="Decrease Width" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name="FieldBorderWidth" HTBInnerToolTip="Border Width" WidthMultiplier="2" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldBackground" Orientation="Horizontal">
+                                        <TextBlock Text="Lightness" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="FieldBackgroundDarken" InnerToolTip="Darken" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="FieldBackgroundLighten" InnerToolTip="Lighten" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name="FieldBackgroundLightness" HTBInnerToolTip="Lightness" WidthMultiplier="2" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelTagsDataRow" Orientation="Horizontal">
+                                        <TextBlock Text="Rows" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="TagsAddRow" InnerToolTip="Add Row" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="TagsRemoveRow" InnerToolTip="Remove Row" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelTagsDataColumn" Orientation="Horizontal">
+                                        <TextBlock Text="Columns" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="TagsAddColumn" InnerToolTip="Add Column" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="TagsRemoveColumn" InnerToolTip="Remove Column" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelSubjects" Orientation="Horizontal">
+                                        <TextBlock Text="Subjects" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                        <common:HighlightButton Name="SubjectsLoadData" InnerToolTip="Load Subject Data" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="SubjectsSavePDF" InnerToolTip="Save to PDF by Subject Name" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="SubjectsReplacePDF" InnerToolTip="Update PDF File Content" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="SubjectsExportHelp" InnerToolTip="Export Help File" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelSectionTag" Orientation="Horizontal">
+                                        <TextBlock DockPanel.Dock="Left" Name="TextBlockSectionTag" Text="Section Tag" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="SectionTagGUID" InnerToolTip="Generate GUID Key" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="SectionTagCopy" InnerToolTip="Copy To Clipboard" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox DockPanel.Dock="Right" Name="SectionTag" IsEnabled="False" HTBInnerToolTip="Section Tag" WidthMultiplier="22" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}"/>
+                                    </StackPanel>
+                                </DockPanel>
+                            </Grid>
+                            <Grid Name="GridBlockRow3" DockPanel.Dock="Top" Height="{Binding ElementName=BorderFormContents, Path=ActualHeight}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"></Rectangle>
+                                <DockPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelJustification" Orientation="Horizontal">
+                                        <TextBlock Text="Justification" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="JustificationLeft" InnerToolTip="Flush Left" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="JustificationCenter" InnerToolTip="Centered" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="JustificationRight" InnerToolTip="Flush Right" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="JustificationJustify" InnerToolTip="Justified" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFont" Orientation="Horizontal">
+                                        <TextBlock Text="Font" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="FontBold" InnerToolTip="Bold" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="FontItalic" InnerToolTip="Italic" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="FontUnderline" InnerToolTip="Underline" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                        <TextBlock Text="Size" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="FontSizeIncrease" InnerToolTip="Increase Font Size" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="FontSizeDecrease" InnerToolTip="Decrease Font Size" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name="FontSizeMultiplier" HTBInnerToolTip="Font Size Multiplier" WidthMultiplier="2" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelAlignmentStart" Orientation="Horizontal">
+                                        <TextBlock Text = "Alignment" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelAlignmentExtra1" Orientation="Horizontal">
+                                        <common:HighlightButton Name = "AlignmentT" InnerToolTip="Align Top" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "AlignmentB" InnerToolTip="Align Bottom" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelAlignmentExtra2" Orientation="Horizontal">
+                                        <common:HighlightButton Name = "AlignmentUL" InnerToolTip="Align Upper Left" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "AlignmentUR" InnerToolTip="Align Upper Right" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "AlignmentLR" InnerToolTip="Align Lower Right" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "AlignmentLL" InnerToolTip="Align Lower Left" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelAlignmentBase" Orientation="Horizontal">
+                                        <common:HighlightButton Name = "AlignmentL" InnerToolTip="Align Left" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "AlignmentC" InnerToolTip="Align Center" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "AlignmentR" InnerToolTip="Align Right" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelStretch" Orientation="Horizontal">
+                                        <TextBlock Text = "Stretch" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name = "StretchFill" InnerToolTip="Stretch to Fill" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "StretchUniform" InnerToolTip="Uniform Stretch" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldImage" Orientation="Horizontal">
+                                        <TextBlock Text = "File" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name = "ImageLoad" InnerToolTip="Load Image (Right Click To Save)" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldChoiceMore" Orientation="Horizontal">
+                                        <TextBlock Text = "Content" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name = "FieldChoicePreviousTabletContent" InnerToolTip="Previous Content Type" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "FieldChoiceNextTabletContent" InnerToolTip="Next Content Type" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name = "FieldChoiceTabletContent" HTBInnerToolTip="Tablet Content Type" WidthMultiplier="6" FontMultiplier="2" IsEnabled="False" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                </DockPanel>
+                            </Grid>
+                            <Grid Name="GridBlockRow4" DockPanel.Dock="Top" Height="{Binding ElementName=BorderFormContents, Path=ActualHeight}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"></Rectangle>
+                                <DockPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelSectionExtra" Orientation="Horizontal">
+                                        <TextBlock Text="Numbering: Start" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="BlockIncreaseStart" InnerToolTip="Increase Start" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="BlockDecreaseStart" InnerToolTip="Decrease Start" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name="BlockStart" HTBInnerToolTip="Start" WidthMultiplier="2" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                        <TextBlock Text="Type" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="BlockPreviousType" InnerToolTip="Previous Type" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="BlockNextType" InnerToolTip="Next Type" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name="BlockType" HTBInnerToolTip="Numbering Type" IsEnabled="False" WidthMultiplier="10" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldStaticText1" Orientation="Horizontal">
+                                        <TextBlock Text="Element" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="StaticTextShowActive" HBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.032}"/>
+                                        <common:HighlightButton Name="StaticTextAddSubject" InnerToolTip="Add Subject" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldStaticText2" Orientation="Horizontal">
+                                        <common:HighlightButton Name="StaticTextAddTag" InnerToolTip="Add Tag" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldStaticText3" Orientation="Horizontal">
+                                        <common:HighlightButton Name="StaticTextAdd" InnerToolTip="Add Element" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="StaticTextRemove" InnerToolTip="Remove Element" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="StaticTextPrevious" InnerToolTip="Previous Element" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="StaticTextNext" InnerToolTip="Next Element" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name="StaticTextCurrent" HTBInnerToolTip="Element Number" WidthMultiplier="2" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                        <TextBlock Text="Content" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldChoice" Orientation="Horizontal">
+                                        <TextBlock Text = "Count" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name = "FieldChoiceAddTablet" InnerToolTip="Add Tablet" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "FieldChoiceRemoveTablet" InnerToolTip="Remove Tablet" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name = "FieldChoiceTabletCount" HTBInnerToolTip="Tablet Count" WidthMultiplier="2" FontMultiplier="2" IsEnabled="False" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                        <TextBlock Text="Start" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name = "FieldChoiceIncreaseStart" InnerToolTip="Increase Start" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "FieldChoiceDecreaseStart" InnerToolTip="Decrease Start" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name = "FieldChoiceTabletStart" HTBInnerToolTip="Tablet Start" WidthMultiplier="2" FontMultiplier="2" IsEnabled="False" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                        <TextBlock Text="Groups" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name = "FieldChoiceIncreaseGroups" InnerToolTip="Increase Groups" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "FieldChoiceDecreaseGroups" InnerToolTip="Decrease Groups" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name = "FieldChoiceTabletGroups" HTBInnerToolTip="Tablet Groups" WidthMultiplier="2" FontMultiplier="2" IsEnabled="False" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldHandwriting" Orientation="Horizontal">
+                                        <TextBlock Text = "Blocks" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name = "FieldHandwritingAddBlock" InnerToolTip="Add Block" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "FieldHandwritingRemoveBlock" InnerToolTip="Remove Block" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name = "FieldHandwritingBlockCount" HTBInnerToolTip="Block Count" WidthMultiplier="2" FontMultiplier="2" IsEnabled="False" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldHandwritingMore" Orientation="Horizontal">
+                                        <TextBlock Text = "Rows" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightTextBox Name = "FieldHandwritingRowCount" HTBInnerToolTip="Row Count" WidthMultiplier="2" FontMultiplier="2" IsEnabled="False" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                        <TextBlock Text="Type" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name = "FieldHandwritingPreviousType" InnerToolTip="Previous Type" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "FieldHandwritingNextType" InnerToolTip="Next Type" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name = "FieldHandwritingType" HTBInnerToolTip="Type" IsEnabled="False" WidthMultiplier="8" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <common:HighlightTextBox DockPanel.Dock="Right" Name="BlockContent" AcceptsReturn="True" HTBInnerToolTip="Content" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}"/>
+                                </DockPanel>
+                            </Grid>
+                            <Grid Name="GridBlockRow5" DockPanel.Dock="Top" Height="{Binding ElementName=BorderFormContents, Path=ActualHeight}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"></Rectangle>
+                                <DockPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldChoiceExtraTop" Orientation="Horizontal">
+                                        <TextBlock Name = "FieldChoiceTextTopDescription" Text="Top" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name = "FieldChoicePreviousTopDescription" InnerToolTip="Previous Description" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "FieldChoiceNextTopDescription" InnerToolTip="Next Description" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name = "FieldChoiceTopDescription" WidthMultiplier="2" FontMultiplier="2" IsEnabled="False" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <common:HighlightTextBox Name = "FieldChoiceTopDescriptionContent" WidthMultiplier="4" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldChoiceExtraBottom" Orientation="Horizontal">
+                                        <TextBlock Name = "FieldChoiceTextBottomDescription" Text="Bottom" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name = "FieldChoicePreviousBottomDescription" InnerToolTip="Previous Description" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "FieldChoiceNextBottomDescription" InnerToolTip="Next Description" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name = "FieldChoiceBottomDescription" WidthMultiplier="2" FontMultiplier="2" IsEnabled="False" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <common:HighlightTextBox Name = "FieldChoiceBottomDescriptionContent" WidthMultiplier="4" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldBoxChoice" Orientation="Horizontal">
+                                        <TextBlock Name="FieldBoxChoiceTextLabel" Text="Label" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="FieldBoxChoicePreviousLabel" InnerToolTip="Previous Label" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="FieldBoxChoiceNextLabel" InnerToolTip="Next Label" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name="FieldBoxChoiceLabel" WidthMultiplier="2" FontMultiplier="2" IsEnabled="False" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <common:HighlightTextBox Name="FieldBoxChoiceLabelContent" HTBInnerToolTip="Current Label" WidthMultiplier="4" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldHandwritingExtra1" Orientation="Horizontal">
+                                        <TextBlock Text = "Column" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name = "FieldHandwritingPreviousColumn" InnerToolTip="Previous Column" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name = "FieldHandwritingNextColumn" InnerToolTip="Next Column" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name = "FieldHandwritingCurrentColumn" HTBInnerToolTip="Current Column" WidthMultiplier="2" FontMultiplier="2" IsEnabled="False" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width = "{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelFieldHandwritingExtra2" Orientation="Horizontal">
+                                        <TextBlock Text="Row" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightButton Name="FieldHandwritingPreviousRow" InnerToolTip="Previous Row" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightButton Name="FieldHandwritingNextRow" InnerToolTip="Next Row" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}"/>
+                                        <common:HighlightTextBox Name="FieldHandwritingCurrentRow" HTBInnerToolTip="Current Row" WidthMultiplier="2" FontMultiplier="2" IsEnabled="False" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                        <TextBlock Text="Content" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightTextBox Name = "FieldHandwritingCurrentContent" HTBInnerToolTip="Current Content" WidthMultiplier="2" FontMultiplier="2" IsEnabled="True" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                                        <Rectangle Width="{Binding ElementName=BlockRow, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}" />
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelSectionTitle" Orientation="Horizontal">
+                                        <TextBlock DockPanel.Dock="Left" Name="TextBlockSectionTitle" Text="Section Title" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                        <common:HighlightTextBox DockPanel.Dock = "Right" Name="SectionTitle" AcceptsReturn="True" HTBInnerToolTip="Section Title" WidthMultiplier="20" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}"/>
+                                    </StackPanel>
+                                    <StackPanel DockPanel.Dock="Left" Name="StackPanelGroupTitle" Orientation="Horizontal">
+                                        <TextBlock DockPanel.Dock="Left" Name="TextBlockGroupTitle" Text="Group Title" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                                    </StackPanel>
+                                    <common:HighlightTextBox DockPanel.Dock="Right" Name="GroupTitle" AcceptsReturn="False" HTBInnerToolTip="Title" FontMultiplier="2" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}"/>
+                                </DockPanel>
+                            </Grid>
+                            <Grid DockPanel.Dock="Bottom" Grid.ZIndex="0" Height="Auto" Width="Auto" Background="Transparent" Margin="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <DataGrid Name="DataGridSubjectsTags" Grid.Row="0" Grid.Column="0" Height="Auto" Width="Auto" Margin="0" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserSortColumns="False" IsReadOnly="False" SelectionMode="Single" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.45}"/>
+                                <ScrollViewer Name="ScrollViewerBlockContent" Grid.Row="0" Grid.Column="0" Width="Auto" Height="Auto" VerticalScrollBarVisibility="Visible" PanningMode="VerticalOnly">
+                                    <Grid Grid.ZIndex="0" Height="Auto" Width="Auto" Background="Transparent" Margin="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Rectangle Name="RectangleBlockBackground" Grid.ZIndex="1" Grid.Row="0" Grid.Column="0" Fill="White"/>
+                                        <Image Name="ImageBlockContent" Grid.ZIndex="2" Grid.Row="0" Grid.Column="0"/>
+                                        <Canvas Grid.ZIndex="3" Grid.Row="0" Grid.Column="0" Name="CanvasBlockContent" Background="Transparent"/>
+                                        <ItemsControl Name="ImageBlockViewer" Grid.Row="0" Grid.Column="0" Grid.ZIndex="2" ItemsSource="{Binding Path=Images}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Vertical"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Image Source="{Binding}" Margin="0" Width="{Binding ElementName=ScrollViewerBlockContent, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.8}"/>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Grid>
+                                </ScrollViewer>
+                            </Grid>
+                        </DockPanel>
+                        <DockPanel Name="DockPanelFooter" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Visibility="Hidden">
+                            <Grid DockPanel.Dock="Top" Height="{Binding ElementName=BorderFormContents, Path=ActualHeight}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"></Rectangle>
+                                <StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2" Orientation="Horizontal">
+                                    <common:HighlightCheckBox Name="FooterShowTitle" LabelText="Show Title" InnerToolTip="Show Form Title" HCBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.5}"/>
+                                    <common:HighlightCheckBox Name="FooterShowPage" LabelText="Show Page" InnerToolTip="Show Page Number" HCBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.5}"/>
+                                    <common:HighlightCheckBox Name="FooterShowSubject" LabelText="Show Subject" InnerToolTip="Show Subject Name" HCBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.5}"/>
+                                </StackPanel>
+                            </Grid>
+                            <Image DockPanel.Dock="Bottom" Grid.ZIndex="2" Name="ImageFooterBarcode" Height="Auto" Width="Auto" Margin="0"/>
+                        </DockPanel>
+                        <viewer:PDFViewer Name="PDFViewerControl" PVReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" Visibility="Hidden"/>
+                    </Grid>
+                </DockPanel>
+            </Grid>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0" Grid.Column="2" Panel.ZIndex="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+            <DockPanel>
+                <Border DockPanel.Dock="Bottom" Background="#33FF00FF">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Name="RectangleRecycleBinBackground" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0" Grid.ZIndex="1" Visibility="Hidden">
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="Resources/TextureCardboard.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Grid Grid.Row="0" Grid.Column="0" Grid.ZIndex="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default}"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default}"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default}"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default}"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Name="ImageRecycleBin" Grid.Row="1" Grid.Column="1" Grid.ZIndex="1" Height="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}" Width="Auto" Margin="0"/>
+                        </Grid>
+                        <Rectangle Name="RectangleRecycleBin" Grid.Row="0" Grid.Column="0" ToolTip="Recycle Bin" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="3" Fill="Transparent" AllowDrop="True" Tag="1cf651c7-fb62-416d-b5f4-3dcef478f024"/>
+                        <Rectangle Name="RectangleExportBackground" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="1" Grid.ZIndex="1" Visibility="Hidden">
+                            <Rectangle.Fill>
+                                <ImageBrush ImageSource="Resources/TextureCardboard.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <Grid Grid.Row="0" Grid.Column="1" Grid.ZIndex="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default}"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default}"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default}"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default}"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Name="ImageExport" Grid.Row="1" Grid.Column="1" Grid.ZIndex="1" Height="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}" Width="Auto" Margin="0"/>
+                        </Grid>
+                        <Rectangle Name="RectangleExport" Grid.Row="0" Grid.Column="1" ToolTip="Export" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="3" Fill="Transparent" AllowDrop="True" Tag="78570ad2-32b9-4b1c-8d58-d3ed2b9dad55"/>
+                    </Grid>
+                </Border>
+                <DockPanel DockPanel.Dock="Top">
+                    <Border Name="BorderField" DockPanel.Dock="Top" Background="#33FF00FF" Height="{Binding ElementName=BorderFormContents, Path=ActualHeight}">
+                        <TextBlock Text="Field Types" Padding="10" DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                    </Border>
+                    <ScrollViewer Name="GridFieldScrollViewer" DockPanel.Dock="Bottom" VerticalScrollBarVisibility="Visible" Grid.Row="1" Visibility="Visible" PanningMode="VerticalOnly" Tag="1083d417-46da-4538-8793-726cdb94f868">
+                        <Grid Name="GridFieldContents" Margin="0,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Background="{x:Null}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.003}"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.003}"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </ScrollViewer>
+                </DockPanel>
+            </DockPanel>
+        </Border>
+        <Grid Name="GridButtons" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="0" ColumnSpan="3" Panel.ZIndex="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0" IsEnabled="False" FontWeight="Bold" Background="Transparent">
+                <Label Content="CCM" Margin="0" Padding="0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.4}"/>
+            </Button>
+            <Button Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="1" IsEnabled="False" FontWeight="Bold" Background="Transparent">
+                <Image Source="Resources/IconCCM.ico"/>
+            </Button>
+            <Button Name="ButtonClearForm" Content="Clear Form" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.35}" Click="ClearForm_Button_Click"/>
+            <Button Name="ButtonLoadForm" Content="Load Form" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="3" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.35}" Click="LoadForm_Button_Click"/>
+            <Button Name="ButtonSaveForm" Content="Save Form" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="4" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.35}" Click="SaveForm_Button_Click"/>
+            <Button Name="ButtonLoadSection" Content="Load Section" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="5" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.35}" Click="LoadSection_Button_Click"/>
+            <Button Name="ButtonExit" Content="Exit" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="12" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.35}" Click="Exit_Button_Click" IsDefault="True"/>
+            <Button Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="13" IsEnabled="False" FontWeight="Bold" Background="Transparent" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
+                <Label Content="Links" Margin="0" Padding="0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.4}"/>
+            </Button>
+            <Button Name="Button0" Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="14" IsEnabled="True" FontWeight="Bold" Background="Transparent" Click="LoadLink_Button_Click" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
+                <Image Name="ButtonImage0"/>
+            </Button>
+            <Button Name="Button1" Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="15" IsEnabled="True" FontWeight="Bold" Background="Transparent" Click="LoadLink_Button_Click" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
+                <Image Name="ButtonImage1"/>
+            </Button>
+            <Button Name="Button2" Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="16" IsEnabled="True" FontWeight="Bold" Background="Transparent" Click="LoadLink_Button_Click" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
+                <Image Name="ButtonImage2"/>
+            </Button>
+            <Button Name="ButtonHelp" Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="17" IsEnabled="True" FontWeight="Bold" Background="Transparent" AllowDrop="True" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
+                <Image Name="ButtonImageHelp" Source="Resources/IconHelp.ico" ToolTip="Help"/>
+            </Button>
+            <Border BorderBrush="Black" BorderThickness="2" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="13" Panel.ZIndex="1"/>
+            <Border BorderBrush="Black" BorderThickness="2" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="13" Grid.ColumnSpan="5" Panel.ZIndex="1"/>
+        </Grid>
+        <Rectangle Name="ButtonBackground" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Panel.ZIndex="0">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/TextureVintage.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>

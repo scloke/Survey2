@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="PDFViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:basefunctions="clr-namespace:BaseFunctions;assembly=BaseFunctions"
+             xmlns:common="clr-namespace:Common;assembly=Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="297" d:DesignWidth="210">
+    <Grid Name="GridMain">
+        <Grid.Resources>
+            <basefunctions:MultiplierConverter x:Key="MultiplierConverter"/>
+            <basefunctions:MultiplierConverter2 x:Key="MultiplierConverter2"/>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Name="DockPanelPDF" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
+            <Grid DockPanel.Dock="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"></Rectangle>
+                <StackPanel Name="StackPanelButtons" Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                    <common:HighlightButton Name="PDFSave" InnerToolTip="Save PDF File" HBReference="{Binding PVReferenceHeight, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                    <common:HighlightButton Name="PDFPrint" InnerToolTip="Print PDF File" HBReference="{Binding PVReferenceHeight, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                    <common:HighlightButton Name="PDFPrintSelect" InnerToolTip="Select Printer" HBReference="{Binding PVReferenceHeight, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                    <common:HighlightButton Name="PDFZoomIn" InnerToolTip="Zoom In" HBReference="{Binding PVReferenceHeight, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                    <common:HighlightButton Name="PDFZoomOut" InnerToolTip="Zoom Out" HBReference="{Binding PVReferenceHeight, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                    <common:HighlightButton Name="PDFZoom100" InnerToolTip="Reset Zoom 100%" HBReference="{Binding PVReferenceHeight, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                    <common:HighlightButton Name="PDFZoomPage" InnerToolTip="Zoom To Page" HBReference="{Binding PVReferenceHeight, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                    <common:HighlightButton Name="PDFStart" InnerToolTip="Move To Start" HBReference="{Binding PVReferenceHeight, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                    <common:HighlightButton Name="PDFBack" InnerToolTip="Move Back" HBReference="{Binding PVReferenceHeight, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                    <common:HighlightButton Name="PDFForward" InnerToolTip="Move Forward" HBReference="{Binding PVReferenceHeight, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                    <common:HighlightButton Name="PDFEnd" InnerToolTip="Move To End" HBReference="{Binding PVReferenceHeight, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                    <common:HighlightTextBox Name="PDFPage" HTBInnerToolTip="Page Number" HTBReferenceHeight="{Binding PVReferenceHeight, RelativeSource={RelativeSource AncestorType=UserControl}, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}"/>
+                </StackPanel>
+            </Grid>
+            <ScrollViewer Name="ScrollViewerPDFHost" DockPanel.Dock="Right" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0" PanningMode="Both" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Name="RectanglePDFHost" Grid.Row="0" Grid.Column="0" Grid.ZIndex="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Fill="Transparent" IsManipulationEnabled="True"/>
+                    <ItemsControl Name="PDFHost" Grid.Row="0" Grid.Column="0" Grid.ZIndex="1" ItemsSource="{Binding Path=Images}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Name="ImagePage" Grid.Row="0" Grid.Column="0" Grid.ZIndex="2" Source="{Binding}" Margin="0,20">
+                                        <Image.Width>
+                                            <MultiBinding Converter="{StaticResource MultiplierConverter2}">
+                                                <Binding ElementName="ScrollViewerPDFHost" Path="ActualWidth"/>
+                                                <Binding ElementName="ScrollViewerPDFHost" Path="Tag"/>
+                                            </MultiBinding>
+                                        </Image.Width>
+                                    </Image>
+                                    <Canvas Grid.ZIndex="3" Grid.Row="0" Grid.Column="0" Name="CanvasPage" Background="Transparent"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</UserControl>

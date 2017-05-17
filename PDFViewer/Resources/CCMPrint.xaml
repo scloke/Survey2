@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingBrush x:Key="_449000765__print" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FF3C3C3F" Geometry="F1 M 160.451,428.188L 731.916,428.188C 739.853,428.188 747.791,436.124 747.791,444.063L 747.791,825.039L 144.577,825.039L 144.577,444.063C 144.577,436.124 152.515,428.188 160.451,428.188 Z "/>
+					<GeometryDrawing Geometry="F1 M 136.64,459.936L 755.727,459.936C 768.425,459.936 779.537,471.048 779.537,483.747L 779.537,809.165C 779.537,818.688 771.601,825.039 763.664,825.039L 684.295,825.039C 660.483,825.039 652.545,777.416 620.799,777.416L 271.569,777.416C 239.821,777.416 231.885,825.039 208.073,825.039L 128.703,825.039C 120.766,825.039 112.829,818.688 112.829,809.165L 112.829,483.747C 112.829,471.048 123.941,459.936 136.64,459.936 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="20" MiterLimit="2.75" Brush="#FF3C3C3F"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 208.073,459.936L 700.168,459.936L 700.168,705.984C 700.168,718.683 689.056,729.793 676.357,729.793L 231.885,729.793C 219.185,729.793 208.073,718.683 208.073,705.984L 208.073,459.936 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="13.3333" MiterLimit="2.75" Brush="#FF3C3C3F"/>
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush StartPoint="0.500001,-9.49938e-006" EndPoint="0.500001,0.999995">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Color="#FF4E7DC7" Offset="0"/>
+									<GradientStop Color="#FF4E7DC7" Offset="0.015873"/>
+									<GradientStop Color="#FF4F7EC8" Offset="0.031746"/>
+									<GradientStop Color="#FF4F7EC8" Offset="0.047619"/>
+									<GradientStop Color="#FF4E7FC8" Offset="0.0634921"/>
+									<GradientStop Color="#FF4E7FC8" Offset="0.0793651"/>
+									<GradientStop Color="#FF4F80C9" Offset="0.0952381"/>
+									<GradientStop Color="#FF4F80C9" Offset="0.111111"/>
+									<GradientStop Color="#FF5081C9" Offset="0.126984"/>
+									<GradientStop Color="#FF5081C9" Offset="0.142857"/>
+									<GradientStop Color="#FF5082CA" Offset="0.15873"/>
+									<GradientStop Color="#FF5082CA" Offset="0.174603"/>
+									<GradientStop Color="#FF5084CB" Offset="0.190476"/>
+									<GradientStop Color="#FF5084CB" Offset="0.206349"/>
+									<GradientStop Color="#FF5185CC" Offset="0.222222"/>
+									<GradientStop Color="#FF5185CC" Offset="0.238095"/>
+									<GradientStop Color="#FF5286CC" Offset="0.253968"/>
+									<GradientStop Color="#FF5286CC" Offset="0.269841"/>
+									<GradientStop Color="#FF5287CD" Offset="0.285714"/>
+									<GradientStop Color="#FF5287CD" Offset="0.301587"/>
+									<GradientStop Color="#FF5288CE" Offset="0.31746"/>
+									<GradientStop Color="#FF5288CE" Offset="0.333333"/>
+									<GradientStop Color="#FF538ACE" Offset="0.349206"/>
+									<GradientStop Color="#FF538ACE" Offset="0.365079"/>
+									<GradientStop Color="#FF538ACF" Offset="0.380952"/>
+									<GradientStop Color="#FF538ACF" Offset="0.396825"/>
+									<GradientStop Color="#FF548CD0" Offset="0.412698"/>
+									<GradientStop Color="#FF548CD0" Offset="0.428571"/>
+									<GradientStop Color="#FF548DD0" Offset="0.444444"/>
+									<GradientStop Color="#FF548DD0" Offset="0.460317"/>
+									<GradientStop Color="#FF548FD1" Offset="0.47619"/>
+									<GradientStop Color="#FF548FD1" Offset="0.492063"/>
+									<GradientStop Color="#FF5590D2" Offset="0.507937"/>
+									<GradientStop Color="#FF5590D2" Offset="0.52381"/>
+									<GradientStop Color="#FF5591D3" Offset="0.539683"/>
+									<GradientStop Color="#FF5591D3" Offset="0.555556"/>
+									<GradientStop Color="#FF5693D4" Offset="0.571429"/>
+									<GradientStop Color="#FF5693D4" Offset="0.587302"/>
+									<GradientStop Color="#FF5693D4" Offset="0.603175"/>
+									<GradientStop Color="#FF5693D4" Offset="0.619048"/>
+									<GradientStop Color="#FF5795D5" Offset="0.634921"/>
+									<GradientStop Color="#FF5795D5" Offset="0.650794"/>
+									<GradientStop Color="#FF5796D6" Offset="0.666667"/>
+									<GradientStop Color="#FF5796D6" Offset="0.68254"/>
+									<GradientStop Color="#FF5798D7" Offset="0.698413"/>
+									<GradientStop Color="#FF5798D7" Offset="0.714286"/>
+									<GradientStop Color="#FF5798D7" Offset="0.730159"/>
+									<GradientStop Color="#FF5798D7" Offset="0.746032"/>
+									<GradientStop Color="#FF589AD8" Offset="0.761905"/>
+									<GradientStop Color="#FF589AD8" Offset="0.777778"/>
+									<GradientStop Color="#FF589BD9" Offset="0.793651"/>
+									<GradientStop Color="#FF589BD9" Offset="0.809524"/>
+									<GradientStop Color="#FF589DD9" Offset="0.825397"/>
+									<GradientStop Color="#FF589DD9" Offset="0.84127"/>
+									<GradientStop Color="#FF589EDA" Offset="0.857143"/>
+									<GradientStop Color="#FF589EDA" Offset="0.873016"/>
+									<GradientStop Color="#FF599FDB" Offset="0.888889"/>
+									<GradientStop Color="#FF599FDB" Offset="0.904762"/>
+									<GradientStop Color="#FF59A0DB" Offset="0.920635"/>
+									<GradientStop Color="#FF59A0DB" Offset="0.936508"/>
+									<GradientStop Color="#FF5AA2DC" Offset="0.952381"/>
+									<GradientStop Color="#FF5AA2DC" Offset="0.968254"/>
+									<GradientStop Color="#FF59A3DD" Offset="0.984127"/>
+									<GradientStop Color="#FF59A3DD" Offset="1"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FF4E7DC7" Geometry="F1 M 144.577,618.676L 176.325,618.676L 176.325,634.551L 144.577,634.551M 144.577,571.055L 176.325,571.055L 176.325,586.928L 144.577,586.928M 144.577,507.559L 176.325,507.559L 176.325,539.305L 144.577,539.305L 144.577,507.559 Z "/>
+					<GeometryDrawing Geometry="F1 M 239.821,436.124L 652.545,436.124L 652.545,309.132C 652.545,301.196 644.609,293.259 636.672,293.259L 255.695,293.259C 246.171,293.259 239.821,299.608 239.821,309.132L 239.821,436.124 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="13.3333" MiterLimit="2.75" Brush="#FF3C3C3F"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="F1 M 612.861,793.289L 279.507,793.289C 274.744,793.289 269.983,794.879 266.807,799.64L 209.661,879.009C 206.487,883.773 206.487,890.121 209.661,896.471C 211.248,901.233 217.597,904.408 222.36,904.408L 670.008,904.408C 674.769,904.408 681.119,901.233 682.707,896.471C 685.881,890.121 685.881,883.773 682.707,879.009L 625.56,799.64C 622.385,794.879 617.624,793.289 612.861,793.289 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="13.3333" MiterLimit="2.75" Brush="#FF3C3C3F"/>
+						</GeometryDrawing.Pen>
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush StartPoint="0.500003,0.119992" EndPoint="0.500003,0.879993">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Color="#FFFCFCFD" Offset="0"/>
+									<GradientStop Color="#FFFCFCFD" Offset="0.015873"/>
+									<GradientStop Color="#FFFCFCFD" Offset="0.031746"/>
+									<GradientStop Color="#FFFCFCFD" Offset="0.047619"/>
+									<GradientStop Color="#FFFCFCFD" Offset="0.0634921"/>
+									<GradientStop Color="#FFFCFCFD" Offset="0.0793651"/>
+									<GradientStop Color="#FFFCFCFD" Offset="0.0952381"/>
+									<GradientStop Color="#FFFCFCFD" Offset="0.111111"/>
+									<GradientStop Color="#FFFCFCFD" Offset="0.126984"/>
+									<GradientStop Color="#FFFCFCFD" Offset="0.142857"/>
+									<GradientStop Color="#FFFCFCFD" Offset="0.15873"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.174603"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.190476"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.206349"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.222222"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.238095"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.253968"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.269841"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.285714"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.301587"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.31746"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.333333"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.349206"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.365079"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.380952"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.396825"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.412698"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.428571"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.444444"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.460317"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.47619"/>
+									<GradientStop Color="#FFFDFDFD" Offset="0.492063"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.507937"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.52381"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.539683"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.555556"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.571429"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.587302"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.603175"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.619048"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.634921"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.650794"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.666667"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.68254"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.698413"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.714286"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.730159"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.746032"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.761905"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.777778"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.793651"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.809524"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.825397"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.84127"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.857143"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.873016"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.888889"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.904762"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.920635"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.936508"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.952381"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.968254"/>
+									<GradientStop Color="#FFFEFEFE" Offset="0.984127"/>
+									<GradientStop Color="#FFFEFEFE" Offset="1"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+</ResourceDictionary>

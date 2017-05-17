@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingBrush x:Key="CCMUp" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 358.792,401.66L 128.619,631.835C 116.237,644.216 116.237,664.376 128.619,676.757L 179.097,727.237C 194.496,742.635 219.736,742.635 235.291,727.237L 398,564.529L 560.708,727.237C 576.265,742.635 601.505,742.635 616.901,727.237L 667.383,676.757C 679.764,664.376 679.764,644.216 667.383,631.835L 437.208,401.66C 426.413,390.865 412.207,385.469 398,385.469L 398,385.469C 383.793,385.469 369.585,390.865 358.792,401.66 Z ">
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush StartPoint="0.991467,-0.0143943" EndPoint="2.5185,-0.0143943">
+								<LinearGradientBrush.RelativeTransform>
+									<TransformGroup>
+										<SkewTransform CenterX="0.991467" CenterY="-0.0143943" AngleX="-25.2557" AngleY="0"/>
+										<RotateTransform CenterX="0.991467" CenterY="-0.0143943" Angle="122.372"/>
+									</TransformGroup>
+								</LinearGradientBrush.RelativeTransform>
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Color="#FF008AFF" Offset="0"/>
+									<GradientStop Color="#FF00AAFF" Offset="1"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+					<DrawingGroup ClipGeometry="F1 M 0,0.146606L 793.701,0.146606L 793.701,1122.67L 0,1122.67L 0,0.146606 Z ">
+						<DrawingGroup.Children>
+							<GeometryDrawing Geometry="F1 M 358.791,401.66C 380.38,380.072 415.62,380.072 437.208,401.66L 667.383,631.835C 679.764,644.216 679.764,664.376 667.383,676.757L 616.902,727.237C 601.506,742.635 576.266,742.635 560.708,727.237L 398,564.528L 235.291,727.237C 219.735,742.635 194.495,742.635 179.098,727.237L 128.618,676.757C 116.236,664.376 116.236,644.216 128.618,631.835L 358.791,401.66 Z ">
+								<GeometryDrawing.Pen>
+									<Pen Thickness="26.6667" MiterLimit="2.75" Brush="#FF434242"/>
+								</GeometryDrawing.Pen>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+</ResourceDictionary>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingBrush x:Key="CCMForward" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 240.212,336.895L 240.212,787.4C 240.212,809.941 262.753,832.481 285.295,832.481L 285.295,832.481C 307.836,832.481 319.107,821.211 330.377,809.941L 533.248,607.069C 547.057,593.26 555.947,582.308 555.787,561.512L 555.787,561.512C 555.629,539.288 544.359,528.019 533.248,516.907L 330.377,314.353C 319.107,303.084 307.836,291.813 285.295,291.813L 285.295,291.813C 262.753,291.813 240.212,314.353 240.212,336.895 Z ">
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush StartPoint="7.25281e-007,0.5" EndPoint="1,0.5">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Color="#FF008AFF" Offset="0"/>
+									<GradientStop Color="#FF00AAFF" Offset="1"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+					<DrawingGroup ClipGeometry="F1 M 0,0.146606L 793.701,0.146606L 793.701,1122.67L 0,1122.67L 0,0.146606 Z ">
+						<DrawingGroup.Children>
+							<GeometryDrawing Geometry="F1 M 330.377,809.94C 319.106,821.211 307.836,832.481 285.294,832.481C 262.753,832.481 240.212,809.94 240.212,787.4L 240.212,336.895C 240.212,314.355 262.753,291.812 285.294,291.812C 307.836,291.812 319.106,303.083 330.377,314.355L 533.248,516.907C 544.358,528.019 555.629,539.288 555.788,561.512C 555.946,582.307 547.057,593.26 533.248,607.071L 330.377,809.94 Z ">
+								<GeometryDrawing.Pen>
+									<Pen Thickness="26.6667" MiterLimit="2.75" Brush="#FF434242"/>
+								</GeometryDrawing.Pen>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+</ResourceDictionary>

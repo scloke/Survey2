@@ -1,0 +1,325 @@
+﻿<UserControl x:Class="Scanner"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:basefunctions="clr-namespace:BaseFunctions;assembly=BaseFunctions"
+             xmlns:common="clr-namespace:Common;assembly=Common"
+             xmlns:viewer="clr-namespace:PDFViewer;assembly=PDFViewer"
+             xmlns:local="clr-namespace:Scanner"
+             xmlns:scm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             mc:Ignorable="d" 
+             d:DesignWidth="1600" d:DesignHeight="1150">
+    <Grid Name="GridMain">
+        <Grid.Resources>
+            <basefunctions:MultiplierConverter x:Key="MultiplierConverter"/>
+            <basefunctions:RowToIndexConverter x:Key="RowToIndexConverter"/>
+            <local:ScannerCollection x:Key="scannercollection"/>
+            <CollectionViewSource x:Key="cvsScannnerCollection" Source="{StaticResource scannercollection}" Filter="CollectionViewSource_Filter">
+                <CollectionViewSource.SortDescriptions>
+                    <scm:SortDescription PropertyName="FormTitle"/>
+                    <scm:SortDescription PropertyName="SubjectName"/>
+                    <scm:SortDescription PropertyName="Order"/>
+                </CollectionViewSource.SortDescriptions>
+                <CollectionViewSource.GroupDescriptions>
+                    <PropertyGroupDescription PropertyName="FormTitle"/>
+                    <PropertyGroupDescription PropertyName="SubjectName"/>
+                </CollectionViewSource.GroupDescriptions>
+            </CollectionViewSource>
+            <Style x:Key="DataGridCentering" TargetType="{x:Type DataGridCell}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.Background >
+            <ImageBrush ImageSource="Resources/TextureCardboard.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="21*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"/>
+            <DockPanel Grid.Row="0" Grid.Column="0" Grid.ZIndex="2">
+                <Rectangle DockPanel.Dock="Left" Grid.ZIndex="0" Width="{Binding ElementName=StackPanelScannerIcons, Path=ActualWidth, Mode=Default}" Fill="Transparent"/>
+                <DockPanel Name="DockPanelHeader" DockPanel.Dock="Right">
+                    <common:HighlightButton Name="ScannerPreviousSubject" DockPanel.Dock="Left" InnerToolTip="Previous Subject" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}" HBTag="8af71b2c-0278-4ad2-a013-9482b7766493"/>
+                    <common:HighlightButton Name="ScannerNextSubject" DockPanel.Dock="Left" InnerToolTip="Next Subject" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}" HBTag="8af71b2c-0278-4ad2-a013-9482b7766493"/>
+                    <common:HighlightButton Name="ScannerPreviousData" DockPanel.Dock="Left" InnerToolTip="Previous Subject With Data" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}" HBTag="8af71b2c-0278-4ad2-a013-9482b7766493"/>
+                    <common:HighlightButton Name="ScannerNextData" DockPanel.Dock="Left" InnerToolTip="Next Subject With Data" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}" HBTag="8af71b2c-0278-4ad2-a013-9482b7766493"/>
+                    <common:HighlightButton Name="ScannerProcessed" DataContext="{Binding Source={StaticResource scannercollection}}" HBSelected="{Binding Path=Processed}" DockPanel.Dock="Left" InnerToolTip="Mark Subject As Processed" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}" HBTag="a80f8877-ce23-4347-9138-c11a0f5ad942"/>
+                    <common:HighlightButton Name="ScannerHideProcessed" DockPanel.Dock="Left" InnerToolTip="Processed Subjects Visible" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=1.2}" HBTag="a80f8877-ce23-4347-9138-c11a0f5ad942"/>
+                    <Rectangle Width="{Binding ElementName=DockPanelHeader, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                    <common:HighlightTextBox DataContext="{Binding Source={StaticResource scannercollection}}" Name="ScannerCurrent" HTBInnerToolTip="Current Subject Number" IsEnabled="False" WidthMultiplier="3" FontMultiplier="2" HTBText="{Binding Path=SelectedSubjectText}" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                    <TextBlock Text="/" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="SemiBold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                    <common:HighlightTextBox DataContext="{Binding Source={StaticResource scannercollection}}" Name="ScannerCount" HTBInnerToolTip="Subject Count" IsEnabled="False" WidthMultiplier="3" FontMultiplier="2" HTBText="{Binding Path=SubjectCountText}" HTBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}" HTBReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.016}"/>
+                    <Rectangle Width="{Binding ElementName=DockPanelHeader, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.25}"/>
+                    <common:HighlightComboBox DataContext="{Binding Source={StaticResource scannercollection}}" Name="ScannerHeader" DockPanel.Dock="Right" InnerToolTip="Current Subject" FontMultiplier="1.5" HCBText="{Binding Path=SelectedItem}" HCBContent="{Binding Path=FieldDocumentStore.FieldContent}" HCBReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.96}"/>
+                </DockPanel>
+            </DockPanel>
+            <DockPanel Name="DockPanelScanner" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0">
+                <Grid DockPanel.Dock="Left">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"/>
+                    <StackPanel Name="StackPanelScannerIcons" Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="2">
+                        <common:HighlightButton Name="ScannerLoad" InnerToolTip="Load Field Definitions" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}" HBTag="cfae0a99-5f96-4fd1-8f58-2d22f4360a10"/>
+                        <common:HighlightButton Name="ScannerSave" InnerToolTip="Save Field Definitions" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}" HBTag="157092d9-5900-4696-8b27-b21c932b14b3"/>
+                        <common:HighlightButton Name="ScannerScan" InnerToolTip="Scan" IsEnabled="False" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}" HBTag="0fd8a27f-3285-412d-b590-a24e5d247b70"/>
+                        <common:HighlightButton Name="ScannerChoose" InnerToolTip="Select Scanner" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}" HBTag="1a1a04d8-112a-44c5-969f-203494bdddce"/>
+                        <common:HighlightButton Name="ScannerConfigure" InnerToolTip="Configure Scanner" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}" HBTag="268a69be-614d-452e-8f1c-cee99e28ade1"/>
+                        <common:HighlightButton Name="ScannerView" InnerToolTip="View" IsEnabled="False" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}" HBTag="94261d3a-9e1c-4b73-9dff-ff84a83d83b5"/>
+                        <common:HighlightButton Name="ScannerFilter" InnerToolTip="Filter" IsEnabled="False" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}" HBTag="17a1ef3d-3701-4525-af98-21c3d4685cff"/>
+                        <common:HighlightButton Name="ScannerMark" InnerToolTip="Marks" IsEnabled="False" HBReference="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=2}" HBTag="5b0aa5b6-2c82-47f3-8350-b2dbcee040af"/>
+                    </StackPanel>
+                </Grid>
+                <Grid DockPanel.Dock="Right">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid Name="DataGridScanner" Grid.Row="0" Grid.Column="0" CellStyle="{StaticResource DataGridCentering}" Height="Auto" Width="Auto" Margin="0" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserReorderColumns="False" CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="False" SelectionMode="Single" IsSynchronizedWithCurrentItem="True" Background="{x:Null}" ItemsSource="{Binding Source={StaticResource cvsScannnerCollection}}" FontSize="{Binding ElementName=DataGridScanner, Path=ActualWidth, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.015}" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" Visibility="Visible" Tag="4f2e7a80-2265-4527-9dd9-544383e60756">
+                        <DataGrid.Resources>
+                            <DataTemplate x:Key="ChoiceTemplate">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <CheckBox IsChecked="False" Margin="0,0,0,0" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="0">X</CheckBox>
+                                </Grid>
+                            </DataTemplate>
+                            <DataTemplate x:Key="BasicTemplate">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox Margin="0,0,0,0" HorizontalContentAlignment="Center" Grid.Row="0" Grid.Column="0" Text="X"/>
+                                </Grid>
+                            </DataTemplate>
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightSkyBlue" />
+                            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+                        </DataGrid.Resources>
+                        <DataGrid.GroupStyle>
+                            <!-- Style for groups at top level. -->
+                            <GroupStyle>
+                                <GroupStyle.Panel>
+                                    <ItemsPanelTemplate>
+                                        <DataGridRowsPresenter/>
+                                    </ItemsPanelTemplate>
+                                </GroupStyle.Panel>
+                                <GroupStyle.ContainerStyle>
+                                    <Style TargetType="{x:Type GroupItem}">
+                                        <Setter Property="Margin" Value="0,0,0,5"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                    <Expander IsExpanded="True" Background="DarkBlue" BorderBrush="DarkBlue" BorderThickness="5" Padding="0,0,0,10">
+                                                        <Expander.Header>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock FontWeight="Bold" Foreground="#FFEEEEEE" Text="Study: " Margin="5,0,0,0"/>
+                                                                <TextBlock FontWeight="Bold" Foreground="#FFEEEEEE" Text="{Binding Path=Name}" Margin="0,0,0,0"/>
+                                                                <TextBlock FontWeight="Bold" Foreground="#FFEEEEEE" Text=" (" Margin="0,0,0,0"/>
+                                                                <TextBlock FontWeight="Bold" Foreground="#FFEEEEEE" Text="{Binding Path=ItemCount}"/>
+                                                                <TextBlock FontWeight="Bold" Foreground="#FFEEEEEE" Text=")" Margin="0,0,0,0"/>
+                                                            </StackPanel>
+                                                        </Expander.Header>
+                                                        <Expander.Content>
+                                                            <ItemsPresenter/>
+                                                        </Expander.Content>
+                                                    </Expander>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GroupStyle.ContainerStyle>
+                            </GroupStyle>
+                            <!-- Style for groups under the top level. -->
+                            <GroupStyle>
+                                <GroupStyle.Panel>
+                                    <ItemsPanelTemplate>
+                                        <DataGridRowsPresenter/>
+                                    </ItemsPanelTemplate>
+                                </GroupStyle.Panel>
+                                <GroupStyle.ContainerStyle>
+                                    <Style TargetType="{x:Type GroupItem}">
+                                        <Setter Property="Margin" Value="0,0,0,5"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                    <Expander IsExpanded="True" Background="LightBlue" BorderBrush="LightBlue" BorderThickness="5" Padding="0,0,0,10">
+                                                        <Expander.Header>
+                                                            <DockPanel>
+                                                                <TextBlock Foreground="Blue" Text="Subject: " Margin="30,0,0,0"/>
+                                                                <TextBlock Foreground="Blue" Text="{Binding Path=Name}" Margin="0,0,0,0"/>
+                                                                <TextBlock Foreground="Blue" Text=" (" Margin="0,0,0,0"/>
+                                                                <TextBlock Foreground="Blue" Text="{Binding Path=ItemCount}"/>
+                                                                <TextBlock Foreground="Blue" Text=")" Margin="0,0,0,0"/>
+                                                            </DockPanel>
+                                                        </Expander.Header>
+                                                        <Expander.Content>
+                                                            <ItemsPresenter/>
+                                                        </Expander.Content>
+                                                    </Expander>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </GroupStyle.ContainerStyle>
+                            </GroupStyle>
+                        </DataGrid.GroupStyle>
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Foreground" Value="Black"/>
+                                <Setter Property="Background" Value="White"/>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="*" Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={StaticResource RowToIndexConverter}}" Header="No." CanUserResize="False" IsReadOnly="True"/>
+                            <DataGridTextColumn Width="4*" Binding="{Binding FieldTypeText, Mode=OneWay}" Header="Type" CanUserResize="False" IsReadOnly="True"/>
+                            <DataGridTextColumn Width="3*" Binding="{Binding Numbering, Mode=OneWay}" Header="Item" CanUserResize="False" IsReadOnly="True"/>
+                            <DataGridTextColumn Width="2*" Binding="{Binding PageNumberText, Mode=OneWay}" Header="Page" CanUserResize="False" IsReadOnly="True"/>
+                            <DataGridTextColumn Width="3*" Binding="{Binding DataPresentText, Mode=OneWay}" Header="Data" CanUserResize="False" IsReadOnly="True">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding DataPresentText, Mode=OneWay}" Value="Partial">
+                                                <Setter Property="Background" Value="Yellow"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Width="18*" Header="Mark" CanUserResize="False" IsReadOnly="False">
+                                <DataGridTemplateColumn.CellTemplateSelector>
+                                    <local:FieldTemplateSelector ChoiceTemplate="{StaticResource ChoiceTemplate}" BoxChoiceTemplate="{StaticResource BasicTemplate}" HandwritingTemplate="{StaticResource BasicTemplate}" FreeTemplate="{StaticResource BasicTemplate}"/>
+                                </DataGridTemplateColumn.CellTemplateSelector>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <viewer:PDFViewer Name="PDFViewerControl" Grid.Row="0" Grid.Column="0" PVReferenceHeight="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default}" PVReferenceWidth="{Binding ElementName=ButtonBackground, Path=ActualWidth, Mode=Default}" Visibility="Hidden" PVTag="2e1a494b-f150-4da5-ad66-89535bc4890f"/>
+                </Grid>
+            </DockPanel>
+            <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"/>
+                <TextBlock Name="ScannerScannedImage" Grid.Row="0" Grid.Column="0" Grid.ZIndex="2" Text="Scanned Image" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                <Grid Name="GridScannedImage" Grid.Row="1" Grid.Column="0" Grid.ZIndex="0" Height="Auto" Width="Auto" Background="Transparent" Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Name="RectangleScannedImageBackground" Grid.ZIndex="1" Grid.Row="0" Grid.Column="0" Fill="White" Tag="28bb3c94-708a-466d-add9-9691acf5529f"/>
+                    <Image Name="ImageScannedImageContent" Grid.ZIndex="2" Grid.Row="0" Grid.Column="0" Tag="28bb3c94-708a-466d-add9-9691acf5529f"/>
+                </Grid>
+                <Rectangle Grid.Row="2" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.ZIndex="1" Fill="#33FF00FF"/>
+                <TextBlock Name="ScannerDetectedMarks" Grid.Row="2" Grid.Column="0" Grid.ZIndex="2" Padding="10" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.60}"/>
+                <Grid Name="GridDetectedMarks" Grid.Row="3" Grid.Column="0" Grid.ZIndex="0" Height="Auto" Width="Auto" Background="Transparent" Margin="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Name="RectangleDetectedMarksBackground" Grid.ZIndex="1" Grid.Row="0" Grid.Column="0" Fill="White" Tag="f3c2dafc-03a9-491c-a991-ce944dc2d4f3"/>
+                    <Image Name="ImageDetectedMarksContent" Grid.ZIndex="2" Grid.Row="0" Grid.Column="0" Tag="f3c2dafc-03a9-491c-a991-ce944dc2d4f3"/>
+                    <Canvas Name="CanvasDetectedMarksContent" Grid.ZIndex="3" Grid.Row="0" Grid.Column="0" Background="Transparent" Tag="f3c2dafc-03a9-491c-a991-ce944dc2d4f3"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Name="GridButtons" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="0" ColumnSpan="3" Panel.ZIndex="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0" IsEnabled="False" FontWeight="Bold" Background="Transparent">
+                <Label Content="Scanner" Margin="0" Padding="0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.4}"/>
+            </Button>
+            <Button Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="1" IsEnabled="False" FontWeight="Bold" Background="Transparent">
+                <Image Source="Resources/IconScanner.ico"/>
+            </Button>
+            <Button Name="ButtonLoadImages" Content="Load Images" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="2" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.35}" Click="LoadImages_Button_Click"/>
+            <Button Name="ButtonExportData" Content="Export Data" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="3" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.35}" Click="ExportData_Button_Click"/>
+            <Button Name="ButtonExit" Content="Exit" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="12" FontWeight="Bold" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.35}" Click="Exit_Button_Click" IsDefault="True"/>
+            <Button Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="13" IsEnabled="False" FontWeight="Bold" Background="Transparent" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
+                <Label Content="Links" Margin="0" Padding="0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalContentAlignment="Center" FontSize="{Binding ElementName=ButtonBackground, Path=ActualHeight, Mode=Default, Converter={StaticResource MultiplierConverter}, ConverterParameter=0.4}"/>
+            </Button>
+            <Button Name="Button0" Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="14" IsEnabled="True" FontWeight="Bold" Background="Transparent" Click="LoadLink_Button_Click" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
+                <Image Name="ButtonImage0"/>
+            </Button>
+            <Button Name="Button1" Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="15" IsEnabled="True" FontWeight="Bold" Background="Transparent" Click="LoadLink_Button_Click" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
+                <Image Name="ButtonImage1"/>
+            </Button>
+            <Button Name="Button2" Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="16" IsEnabled="True" FontWeight="Bold" Background="Transparent" Click="LoadLink_Button_Click" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
+                <Image Name="ButtonImage2"/>
+            </Button>
+            <Button Name="ButtonHelp" Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="17" IsEnabled="True" FontWeight="Bold" Background="Transparent" AllowDrop="True" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
+                <Image Name="ButtonImageHelp" Source="Resources/IconHelp.ico" ToolTip="Help"/>
+            </Button>
+            <Border BorderBrush="Black" BorderThickness="2" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="13" Panel.ZIndex="1"/>
+            <Border BorderBrush="Black" BorderThickness="2" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="13" Grid.ColumnSpan="5" Panel.ZIndex="1"/>
+        </Grid>
+        <Rectangle Name="ButtonBackground" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Panel.ZIndex="0">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Resources/TextureVintage.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingBrush x:Key="CCMBackPink" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="F1 M 465.625,314.353L 262.756,516.907C 251.645,528.019 240.373,539.288 240.215,561.512L 240.215,561.512C 240.056,582.308 248.945,593.26 262.756,607.069L 465.625,809.941C 476.896,821.211 488.167,832.481 510.707,832.481L 510.707,832.481C 533.249,832.481 555.791,809.941 555.791,787.4L 555.791,336.895C 555.791,314.353 533.249,291.813 510.707,291.813L 510.707,291.813C 488.167,291.813 476.896,303.084 465.625,314.353 Z ">
+						<GeometryDrawing.Brush>
+							<LinearGradientBrush StartPoint="0.999999,0.5" EndPoint="4.83519e-008,0.5">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Color="#FFFF8AFF" Offset="0"/>
+									<GradientStop Color="#FFFFAAFF" Offset="1"/>
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+					<DrawingGroup ClipGeometry="F1 M 0,0.146606L 793.701,0.146606L 793.701,1122.67L 0,1122.67L 0,0.146606 Z ">
+						<DrawingGroup.Children>
+							<GeometryDrawing Geometry="F1 M 262.755,607.07C 248.946,593.261 240.057,582.308 240.215,561.512C 240.374,539.288 251.645,528.018 262.755,516.906L 465.625,314.354C 476.895,303.083 488.167,291.813 510.707,291.813C 533.249,291.813 555.79,314.354 555.79,336.894L 555.79,787.4C 555.79,809.94 533.249,832.482 510.707,832.482C 488.167,832.482 476.895,821.21 465.625,809.94L 262.755,607.07 Z ">
+								<GeometryDrawing.Pen>
+									<Pen Thickness="26.6667" MiterLimit="2.75" Brush="#FF434242"/>
+								</GeometryDrawing.Pen>
+							</GeometryDrawing>
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+</ResourceDictionary>

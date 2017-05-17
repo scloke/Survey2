@@ -1,0 +1,166 @@
+﻿<PageFunction
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:common="clr-namespace:Common;assembly=Common"
+    mc:Ignorable="d" 
+    x:Class="MainPage"
+    x:TypeArguments="sys:Object"
+    Height="Auto"
+    Width="Auto"
+    d:DesignWidth="1600" d:DesignHeight="1200"
+    Title="MainPage">
+    <Grid>
+        <Grid.Background >
+            <ImageBrush ImageSource="Resources/TextureCardboard.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Name="Grid1" Grid.Row="1" Grid.Column="1" Panel.ZIndex="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="ButtonCommon0" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="0" BorderThickness="3" Click="Common_Button_Click" Visibility="Hidden">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/TextureVintage.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+                </Button.Background>
+                <Viewbox>
+                    <Grid Margin="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition SharedSizeGroup="RowImage"/>
+                            <RowDefinition SharedSizeGroup="RowText"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Name="ImageCommon0" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" Grid.Row="0" Grid.Column="1"/>
+                        <Label Name="LabelCommon0" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" FontSize="36" FontWeight="Bold" Foreground="Black" Padding="2" Grid.Row="1" Grid.Column="1"/>
+                    </Grid>
+                </Viewbox>
+            </Button>
+            <Button Name="ButtonCommon1" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="1" BorderThickness="3" Click="Common_Button_Click" Visibility="Hidden">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/TextureVintage.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+                </Button.Background>
+                <Viewbox>
+                    <Grid Margin="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition SharedSizeGroup="RowImage"/>
+                            <RowDefinition SharedSizeGroup="RowText"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Name="ImageCommon1" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" Grid.Row="0" Grid.Column="1"/>
+                        <Label Name="LabelCommon1" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" FontSize="36" FontWeight="Bold" Foreground="Black" Padding="2" Grid.Row="1" Grid.Column="1"/>
+                    </Grid>
+                </Viewbox>
+            </Button>
+            <Button Name="ButtonCommon2" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="2" BorderThickness="3" Click="Common_Button_Click" Visibility="Hidden">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/TextureVintage.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+                </Button.Background>
+                <Viewbox>
+                    <Grid Margin="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition SharedSizeGroup="RowImage"/>
+                            <RowDefinition SharedSizeGroup="RowText"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Name="ImageCommon2" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" Grid.Row="0" Grid.Column="1"/>
+                        <Label Name="LabelCommon2" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" FontSize="36" FontWeight="Bold" Foreground="Black" Padding="2" Grid.Row="1" Grid.Column="1"/>
+                    </Grid>
+                </Viewbox>
+            </Button>
+            <Button Name="ButtonCommon3" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="0" BorderThickness="3" Click="Common_Button_Click" Visibility="Hidden">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/TextureVintage.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+                </Button.Background>
+                <Viewbox>
+                    <Grid Margin="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition SharedSizeGroup="RowImage"/>
+                            <RowDefinition SharedSizeGroup="RowText"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Name="ImageCommon3" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" Grid.Row="0" Grid.Column="1"/>
+                        <Label Name="LabelCommon3" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" FontSize="36" FontWeight="Bold" Foreground="Black" Padding="2" Grid.Row="1" Grid.Column="1"/>
+                    </Grid>
+                </Viewbox>
+            </Button>
+            <Button Name="ButtonConfigure" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="1" BorderThickness="3" Click="Configuration_Button_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/TextureVintage.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+                </Button.Background>
+                <Viewbox>
+                    <Grid Margin="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition SharedSizeGroup="RowImage"/>
+                            <RowDefinition SharedSizeGroup="RowText"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" Grid.Row="0" Grid.Column="1" Source="Resources/IconConfiguration.png"/>
+                        <Label Content="Configuration" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" FontSize="36" FontWeight="Bold" Foreground="Black" Padding="2" Grid.Row="1" Grid.Column="1"/>
+                    </Grid>
+                </Viewbox>
+            </Button>
+            <Button Name="ButtonExit" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="1" Grid.Column="2" BorderThickness="3" Click="Exit_Button_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/TextureVintage.png" Viewport="0,0,512,512" ViewportUnits="Absolute" TileMode="Tile" Stretch="None" AlignmentX="Left" AlignmentY="Top"/>
+                </Button.Background>
+                <Viewbox>
+                    <Grid Margin="48" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition SharedSizeGroup="RowImage"/>
+                            <RowDefinition SharedSizeGroup="RowText"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" Grid.Row="0" Grid.Column="1" Source="Resources/IconExit.png"/>
+                        <Label Content="Exit" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" FontSize="36" FontWeight="Bold" Foreground="Black" Padding="2" Grid.Row="1" Grid.Column="1"/>
+                    </Grid>
+                </Viewbox>
+            </Button>
+        </Grid>
+        <Rectangle Name="RectSize" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill" Panel.ZIndex="0" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <Viewbox Name="ViewBox1" Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="2" Panel.ZIndex="1">
+            <common:MessageHub Name="MessageHub1" Width="{Binding Path=ActualWidth, ElementName=RectSize}" Height="{Binding Path=ActualHeight, ElementName=RectSize}"/>
+        </Viewbox>
+    </Grid>
+</PageFunction>

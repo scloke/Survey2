@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CCMBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMBody" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMBody.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMField" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMField.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMFooter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMFooter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMFormHeader" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMFormHeader.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMHeader" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMHeader.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMMCQ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMMCQ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMMCQData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMMCQData.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMMinus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMMinus.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMPageHeader" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMPageHeader.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMPDF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMPDF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMPlus.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMProperties" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMProperties.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMSection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMSection.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMSubSection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMSubSection.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconCCM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconCCM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconCCM1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconCCM.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconHelp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconHelp.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextureCardboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TextureCardboard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextureVintage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TextureVintage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMDown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMDown.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMUp.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMBack.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMForward" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMForward.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMBackground.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMBorder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMBorder.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMNumbering" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMNumbering.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMSave.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMTrashValid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMTrashValid.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMImage.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMImageSample" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMImageSample.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMText.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMFontBold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMFontBold.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMFontItalic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMFontItalic.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMFontUnderline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMFontUnderline.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMJustificationCenter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMJustificationCenter.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMJustificationJustify" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMJustificationJustify.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMJustificationLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMJustificationLeft.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMJustificationRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMJustificationRight.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMNotVisible" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMNotVisible.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMSelection" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMSelection.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMSubject" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMSubject.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMTag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMTag.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMVisible" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMVisible.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMAlignmentB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMAlignmentB.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMAlignmentC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMAlignmentC.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMAlignmentL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMAlignmentL.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMAlignmentLL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMAlignmentLL.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMAlignmentLR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMAlignmentLR.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMAlignmentR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMAlignmentR.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMAlignmentT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMAlignmentT.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMAlignmentUL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMAlignmentUL.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMAlignmentUR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMAlignmentUR.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMImageBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMImageBlue.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMStretchFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMStretchFill.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMStretchUniform" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMStretchUniform.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMCheck" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMCheck.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMCheckEmpty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMCheckEmpty.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMCheckMark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMCheckMark.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMHandwriting" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMHandwriting.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMLoremIpsum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMLoremIpsum.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMPencil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMPencil.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMCritical" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMCritical.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMCross" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMCross.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMOne" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMOne.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMDivider" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMDivider.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMGroup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMGroup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMPageBreak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMPageBreak.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMMCQLoad" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMMCQLoad.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMSubjects" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMSubjects.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CCMPDF1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMPDF.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMReplacePDF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMReplacePDF.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMClipboard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMClipboard.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="CCMLock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CCMLock.xaml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+</root>

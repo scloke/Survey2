@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingBrush x:Key="CCMMark1" Stretch="Uniform">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Brush="#FFFFFFFF" Geometry="F1 M 424.147,106.373C 599.487,106.373 741.627,248.513 741.627,423.853C 741.627,599.192 599.487,741.333 424.147,741.333C 248.808,741.333 106.667,599.192 106.667,423.853C 106.667,248.513 248.808,106.373 424.147,106.373 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="53.3334" MiterLimit="2.75" Brush="#FF434242"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+					<GeometryDrawing Brush="#FF279DFF" Geometry="F1 M 424.006,510.338L 507.537,311.211L 494.318,311.211C 480.441,311.211 470.553,308.539 464.646,303.197C 458.741,297.853 455.787,290.869 455.787,282.243C 455.787,273.621 458.741,266.634 464.646,261.29C 470.553,255.946 480.441,253.274 494.318,253.274L 571.662,253.555C 585.535,253.555 595.427,256.183 601.334,261.43C 607.241,266.682 610.194,273.621 610.194,282.243C 610.194,292.557 605.694,300.713 596.694,306.711C 592.378,309.713 583.567,311.211 570.257,311.211L 451.85,594.431L 396.443,594.431L 278.318,311.211C 264.818,311.211 255.911,309.713 251.599,306.711C 242.599,300.902 238.099,292.746 238.099,282.243C 238.099,273.621 241.053,266.634 246.959,261.29C 252.866,255.946 262.754,253.274 276.631,253.274L 354.537,253.555C 368.222,253.555 378.022,256.183 383.927,261.43C 389.834,266.682 392.787,273.621 392.787,282.243C 392.787,290.869 389.878,297.853 384.069,303.197C 378.255,308.539 368.411,311.211 354.537,311.211L 341.037,311.211L 424.006,510.338 Z ">
+						<GeometryDrawing.Pen>
+							<Pen Thickness="13.3333" MiterLimit="2.75" Brush="#FF000000"/>
+						</GeometryDrawing.Pen>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+</ResourceDictionary>
