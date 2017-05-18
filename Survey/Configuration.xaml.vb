@@ -79,6 +79,7 @@ Public Class Configuration
         DeveloperModeOn.HBSource = Converter.XamlToDrawingImage(My.Resources.CCMTick)
         DeveloperModeOff.HBSource = Converter.XamlToDrawingImage(My.Resources.CCMCross)
         LoadHelpFile.HBSource = Converter.XamlToDrawingImage(My.Resources.CCMQuestionMark)
+        ButtonImageLicense.Source = Converter.XamlToDrawingImage(My.Resources.GNU)
     End Sub
     Private Sub SetDeveloper()
         ' sets visibility of developer items
@@ -115,6 +116,22 @@ Public Class Configuration
         Dim iButton As Integer = Val(Right(oButton.Name, Len(oButton.Name) - Len("Button")))
 
         Exit_Button_Click(m_Identifiers(oFilteredNames(iButton)).Item1)
+    End Sub
+    Private Sub DownloadLicense_Button_Click(sender As Object, e As RoutedEventArgs)
+        ' saves a copy of the GNU license
+        Dim oSaveFileDialog As New Microsoft.Win32.SaveFileDialog
+        oSaveFileDialog.FileName = String.Empty
+        oSaveFileDialog.DefaultExt = "*.rtf"
+        oSaveFileDialog.Filter = "RTF Files|*.rtf"
+        oSaveFileDialog.Title = "Save GPLv3 License File"
+        oSaveFileDialog.InitialDirectory = oSettings.DefaultSave
+        Dim result? As Boolean = oSaveFileDialog.ShowDialog()
+        If result = True Then
+            IO.File.WriteAllText(oSaveFileDialog.FileName, My.Resources.gpl)
+            Dim oFileInfo As New IO.FileInfo(oSaveFileDialog.FileName)
+
+            oCommonVariables.Messages.Add(New Messages.Message(PluginName, Colors.Green, Date.Now, "GPLv3 License File " + oFileInfo.Name + " saved."))
+        End If
     End Sub
     Private Sub ShowInfo_Button_Click(sender As Object, e As RoutedEventArgs)
         ' shows the information screen

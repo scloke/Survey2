@@ -151,6 +151,42 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        '''&lt;ResourceDictionary xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot;&gt;
+        '''	&lt;DrawingBrush x:Key=&quot;GNU&quot; Stretch=&quot;Uniform&quot;&gt;
+        '''		&lt;DrawingBrush.Drawing&gt;
+        '''			&lt;DrawingGroup&gt;
+        '''				&lt;DrawingGroup.Children&gt;
+        '''					&lt;DrawingGroup ClipGeometry=&quot;F1 M -8.13802e-005,1122.67L 793.701,1122.67L 793.701,0.146484L -8.13802e-005,0.146484L -8.13802e-005,1122.67 Z &quot;&gt;
+        '''						&lt;DrawingGroup.Children&gt;
+        '''							&lt;GeometryDrawing Geome [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property GNU() As String
+            Get
+                Return ResourceManager.GetString("GNU", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+        '''{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+        '''\widowctrl\hyphauto
+        '''
+        '''{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs28 GNU GENERAL PUBLIC LICENSE\par}
+        '''{\pard \ql \f0 \sa180 \li0 \fi0 Version 3, 29 June 2007\par}
+        '''{\pard \ql \f0 \sa180 \li0 \fi0 Copyright \u169? 2007 Free Software Foundation, Inc. &lt;{\field{\*\fldinst{HYPERLINK &quot;http://fsf.org/&quot;}}{\fldrslt{\ul
+        '''http://fsf.org/
+        '''}}}
+        '''&gt;\par}
+        '''{\pard \ql \f0 \sa180 \li0 \fi0 Everyone is permitted to copy [rest of string was truncated]&quot;;.
+        '''</summary>
+        Friend ReadOnly Property gpl() As String
+            Get
+                Return ResourceManager.GetString("gpl", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property IconCCM() As System.Drawing.Bitmap

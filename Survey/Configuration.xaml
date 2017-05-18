@@ -130,6 +130,9 @@
                 <Button Name="Button3" Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="16" IsEnabled="True" FontWeight="Bold" Background="Transparent" Click="LoadLink_Button_Click" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
                     <Image Name="ButtonImage3"/>
                 </Button>
+                <Button Name="ButtonLicense" Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="17" IsEnabled="True" FontWeight="Bold" Background="Transparent" Click="DownloadLicense_Button_Click" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
+                    <Image Name="ButtonImageLicense" ToolTip="License"/>
+                </Button>
                 <Button Name="ButtonInfo" Margin="0" Padding="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Grid.Row="0" Grid.Column="18" IsEnabled="True" FontWeight="Bold" Background="Transparent" Click="ShowInfo_Button_Click" Tag="e4b425e6-acd5-4c6a-a029-c82d38faa385">
                     <Image Name="ButtonImageInfo" Source="Resources/IconInfo.ico" ToolTip="Info"/>
                 </Button>

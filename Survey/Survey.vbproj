@@ -111,6 +111,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Resource Include="Resources\GNU.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Resources\CCMQuestionMark.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -184,6 +188,7 @@
     </None>
     <AppDesigner Include="My Project\" />
     <None Include="packages.config" />
+    <Resource Include="Resources\gpl.rtf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
