@@ -2254,14 +2254,14 @@ Public Class Scanner
         Const DotCountMax300 As Integer = 427
 #Enable Warning BC42099 ' Unused local constant
         Const iTabletThresholdPixel As Integer = 2500
-        Const iDotCountThreshold As Integer = 30
+        Const iDotCountThreshold As Integer = 45
         Const iLowCountThreshold As Integer = 20
         Const iMediumCountThreshold As Integer = 30
         Const iHighCountThreshold As Integer = 80
         Const fLowCountFraction As Single = 0.8
         Const fMediumCountFraction As Single = 0.5
         Const fHighCountFraction As Single = 0.4
-        Const fSlopeThreshold As Single = 0.02
+        Const fSlopeThreshold As Single = 0.088
 
         Dim oScannerCollection As ScannerCollection = Root.GridMain.Resources("scannercollection")
         Dim oMatrixStore As FieldDocumentStore.MatrixStore = oScannerCollection.FieldDocumentStore.FieldMatrixStore
@@ -2303,7 +2303,7 @@ Public Class Scanner
 
                 If iPixelSum > iTabletThresholdPixel AndAlso iDotCount > iDotCountThreshold Then
                     Return New Tuple(Of String, Integer)("X", iPixelSum)
-                ElseIf iPixelSum > (iTabletThresholdPixel / 2) AndAlso iDotCount > (iDotCountThreshold / 2) Then
+                ElseIf iPixelSum > (iTabletThresholdPixel / 2) AndAlso iDotCount > (iDotCountThreshold / 3) Then
                     ' use ransac line estimator to detect lines
                     Using oLineMatrix As Emgu.CV.Matrix(Of Byte) = oMatrixStore.GetMatrix(oImages(i).Item2)
                         Emgu.CV.CvInvoke.Normalize(oLineMatrix, oLineMatrix, Byte.MinValue, Byte.MaxValue, Emgu.CV.CvEnum.NormType.MinMax)

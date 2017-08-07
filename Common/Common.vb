@@ -1416,7 +1416,7 @@ Public Class Common
                 Get
                     Dim sMarkText As String = String.Empty
                     For i = 0 To m_MarkText.Count - 1
-                        If m_MarkText(i).Item1 = String.Empty Then
+                        If Trim(m_MarkText(i).Item1) = String.Empty Then
                             sMarkText += "0"
                         Else
                             sMarkText += "1"
@@ -1429,7 +1429,7 @@ Public Class Common
                 Get
                     Dim sMarkText As String = String.Empty
                     For i = 0 To m_MarkText.Count - 1
-                        If m_MarkText(i).Item2 = String.Empty Then
+                        If Trim(m_MarkText(i).Item2) = String.Empty Then
                             sMarkText += "0"
                         Else
                             sMarkText += "1"
@@ -1442,7 +1442,7 @@ Public Class Common
                 Get
                     Dim sMarkText As String = String.Empty
                     For i = 0 To m_MarkText.Count - 1
-                        If m_MarkText(i).Item3 = String.Empty Then
+                        If Trim(m_MarkText(i).Item3) = String.Empty Then
                             sMarkText += "0"
                         Else
                             sMarkText += "1"
